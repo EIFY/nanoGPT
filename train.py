@@ -32,7 +32,7 @@ from model import GPTConfig, GPT
 # -----------------------------------------------------------------------------
 # default config values designed to train a gpt2 (124M) on OpenWebText
 # I/O
-out_dir = 'out.fast-decay'
+out_dir = 'ppt'
 eval_interval = 2000
 log_interval = 1
 eval_iters = 200
@@ -41,8 +41,8 @@ always_save_checkpoint = True # if True, always save a checkpoint after each eva
 init_from = 'scratch' # 'scratch' or 'resume' or 'gpt2*'
 # wandb logging
 wandb_log = True # disabled by default
-wandb_project = 'owt'
-wandb_run_name = 'gpt2-fast-decay-high-wd' # 'run' + str(time.time())
+wandb_project = 'ppt'
+wandb_run_name = 'test-no-decay'
 # data
 dataset = 'openwebtext'
 gradient_accumulation_steps = 1 # used to simulate larger batch sizes
@@ -55,7 +55,7 @@ n_embd = 768
 dropout = 0.0 # for pretraining 0 is good, for finetuning try 0.1+
 bias = False # do we use bias inside LayerNorm and Linear layers?
 # optimizer
-opt = 'AdamW'
+opt = 'Lion'
 learning_rate = 6e-4 # max learning rate
 max_iters = 200000 # total number of training iterations
 weight_decay = 0.1
